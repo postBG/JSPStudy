@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UnderstandRequestGetter extends HttpServlet {
   private PrintWriter out;
+  private String formattedFunctionName;
   
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException{
@@ -30,16 +31,13 @@ public class UnderstandRequestGetter extends HttpServlet {
     //printGetterInfo("getDateHeader(String arg0)", request.getDateHeader(null));
     //printGetterInfo("getDispatcherType()", request.getDispatcherType());
   
-    String headerName;
-    String functionName;
     Enumeration<String> headerNames = request.getHeaderNames();
+    String headerName;
     while(headerNames.hasMoreElements()){
       headerName = headerNames.nextElement();
-      functionName = "getHeader(" + headerName + ")";
-      printGetterInfo(functionName , request.getHeader(headerName));
-      System.out.println(headerNames.hasMoreElements());
+      formattedFunctionName = "getHeader(" + headerName + ")";
+      printGetterInfo(formattedFunctionName , request.getHeader(headerName));
     }
-    //printGetterInfo("getHeaders(String arg0)", request.getHeaders(null));
     
     //printGetterInfo("getInputStream()", request.getInputStream());
     //printGetterInfo("getIntHeader(String arg0)", request.getIntHeader(null));
@@ -52,10 +50,13 @@ public class UnderstandRequestGetter extends HttpServlet {
 
     printGetterInfo("getMethod()", request.getMethod());
     
-    printGetterInfo("getParameter(String arg0)", request.getParameter(null));
-    //printGetterInfo("getParameterMap()", request.getParameterMap());
-    //printGetterInfo("getParameterNames()", request.getParameterNames());
-    //printGetterInfo("getParameterValues(String arg0)", request.getParameterValues(null));
+    Enumeration<String> parameterNames = request.getParameterNames();
+    String parameterName;
+    while(parameterNames.hasMoreElements()){
+      parameterName = parameterNames.nextElement();
+      formattedFunctionName = "getParameter(" + parameterName + ")";
+      printGetterInfo(formattedFunctionName, request.getParameter(parameterName));      
+    }
     //printGetterInfo("getPart(String arg0)", request.getPart(null));
     printGetterInfo("getPathInfo()", request.getPathInfo());
     printGetterInfo("getPathTranslated()", request.getPathTranslated());
