@@ -18,18 +18,13 @@ public class UnderstandRequestGetter extends HttpServlet {
     out = response.getWriter();
     printHeader();
     
-    //printGetterInfo("getAsyncContext()", request.getAsyncContext());
     printGetterInfo("getAuthType()", request.getAuthType());
     
     printGetterInfo("getCharacterEncoding()", request.getCharacterEncoding());
-    //printGetterInfo("getClass()", request.getClass());
     printGetterInfo("getContentLength()", request.getContentLength());
     printGetterInfo("getContentType()", request.getContentType());
     printGetterInfo("getContextPath()", request.getContextPath());
-    //printGetterInfo("getCookies()", request.getCookies());
     
-    //printGetterInfo("getDateHeader(String arg0)", request.getDateHeader(null));
-    //printGetterInfo("getDispatcherType()", request.getDispatcherType());
   
     Enumeration<String> headerNames = request.getHeaderNames();
     String headerName;
@@ -39,13 +34,10 @@ public class UnderstandRequestGetter extends HttpServlet {
       printGetterInfo(formattedFunctionName , request.getHeader(headerName));
     }
     
-    //printGetterInfo("getInputStream()", request.getInputStream());
     
     printGetterInfo("getLocalAddr()", request.getLocalAddr());
-    //printGetterInfo("getLocale()", request.getLocale());
-    //printGetterInfo("getLocales()", request.getLocales());
     printGetterInfo("getLocalName()", request.getLocalName());
-    //printGetterInfo("getLocalPort()", request.getLocalPort());
+    printGetterInfo("getLocalPort()", request.getLocalPort());
 
     printGetterInfo("getMethod()", request.getMethod());
     
@@ -56,27 +48,37 @@ public class UnderstandRequestGetter extends HttpServlet {
       formattedFunctionName = "getParameter(" + parameterName + ")";
       printGetterInfo(formattedFunctionName, request.getParameter(parameterName));      
     }
-    //printGetterInfo("getPart(String arg0)", request.getPart(null));
     printGetterInfo("getPathInfo()", request.getPathInfo());
     printGetterInfo("getPathTranslated()", request.getPathTranslated());
  
     printGetterInfo("getQueryString()", request.getQueryString());
     
-    //printGetterInfo("getReader()", request.getReader());
     printGetterInfo("getRemoteAddr()", request.getRemoteAddr());
     printGetterInfo("getRemoteHost()", request.getRemoteHost());
-    //printGetterInfo("getRemotePort()", request.getRemotePort());
+    printGetterInfo("getRemotePort()", request.getRemotePort());
     printGetterInfo("getRemoteUser()", request.getRemoteUser());
-    //printGetterInfo("getRequestDispatcher(String arg0)", request.getRequestDispatcher(null));
     printGetterInfo("getRequestedSessionId()", request.getRequestedSessionId());
     printGetterInfo("getRequestURI()", request.getRequestURI());
     printGetterInfo("getRequestURL()", request.getRequestURL());
     
     printGetterInfo("getScheme()", request.getScheme());
     printGetterInfo("getServerName()", request.getServerName());
+    printGetterInfo("getDateHeader(String arg0)", request.getDateHeader(null));
+
+    //printGetterInfo("getCookies()", request.getCookies());
+
+    //printGetterInfo("getPart(String arg0)", request.getPart(null));
+    //printGetterInfo("getRequestDispatcher(String arg0)", request.getRequestDispatcher(null));
+    //printGetterInfo("getAsyncContext()", request.getAsyncContext());
+    //printGetterInfo("getClass()", request.getClass());
+    //printGetterInfo("getDispatcherType()", request.getDispatcherType());
+    //printGetterInfo("getInputStream()", request.getInputStream());
+    //printGetterInfo("getLocale()", request.getLocale());
+    //printGetterInfo("getLocales()", request.getLocales());
     
     printFooter();
   }
+  
   private void printHeader(){
     out.println("<html>");
     out.println("<head><title>Print All Request Getter function</title></head>");
@@ -103,6 +105,12 @@ public class UnderstandRequestGetter extends HttpServlet {
     out.println("</tr>");
   }
   private void printGetterInfo(String functionName, int output){
+    out.println("<tr>");
+    out.println("<td>" + functionName + "</td>");
+    out.println("<td>" + output + "</td>");
+    out.println("</tr>");
+  }
+  private void printGetterInfo(String functionName, long output) {
     out.println("<tr>");
     out.println("<td>" + functionName + "</td>");
     out.println("<td>" + output + "</td>");

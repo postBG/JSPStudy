@@ -24,4 +24,20 @@
     <servlet-name>understandrequestgetter</servlet-name>
     <url-pattern>/understandrequest/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>register</servlet-name>
+    <servlet-class>mysite.email.Register</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>register</servlet-name>
+    <url-pattern>/register/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>storeuserinfo</servlet-name>
+    <servlet-class>mysite.email.StoreUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>storeuserinfo</servlet-name>
+    <url-pattern>/store/*</url-pattern>
+  </servlet-mapping>
 </web-app>
