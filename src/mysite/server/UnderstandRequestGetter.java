@@ -18,17 +18,11 @@ public class UnderstandRequestGetter extends HttpServlet {
     printHeader();
     
     //printGetterInfo("getAsyncContext()", request.getAsyncContext());
-    /*Enumeration<String> attributeNames = request.getAttributeNames();
-    while(attributeNames.hasMoreElements()){
-      printGetterInfo("getAttribute(String arg0)", request.getAttribute(attributeNames.nextElement()));
-    }
-    */
     printGetterInfo("getAuthType()", request.getAuthType());
     
     printGetterInfo("getCharacterEncoding()", request.getCharacterEncoding());
     //printGetterInfo("getClass()", request.getClass());
-    //printGetterInfo("getContentLength()", request.getContentLength());
-    //printGetterInfo("getContentLengthLong()", request.getContentLengthLong());
+    printGetterInfo("getContentLength()", request.getContentLength());
     printGetterInfo("getContentType()", request.getContentType());
     printGetterInfo("getContextPath()", request.getContextPath());
     //printGetterInfo("getCookies()", request.getCookies());
@@ -36,8 +30,15 @@ public class UnderstandRequestGetter extends HttpServlet {
     //printGetterInfo("getDateHeader(String arg0)", request.getDateHeader(null));
     //printGetterInfo("getDispatcherType()", request.getDispatcherType());
   
-    printGetterInfo("getHeader(String arg0)", request.getHeader("hello"));
-    //printGetterInfo("getHeaderNames()", request.getHeaderNames());
+    String headerName;
+    String functionName;
+    Enumeration<String> headerNames = request.getHeaderNames();
+    while(headerNames.hasMoreElements()){
+      headerName = headerNames.nextElement();
+      functionName = "getHeader(" + headerName + ")";
+      printGetterInfo(functionName , request.getHeader(headerName));
+      System.out.println(headerNames.hasMoreElements());
+    }
     //printGetterInfo("getHeaders(String arg0)", request.getHeaders(null));
     
     //printGetterInfo("getInputStream()", request.getInputStream());
@@ -83,16 +84,22 @@ public class UnderstandRequestGetter extends HttpServlet {
     
     out.println("<table>");
   }
+  private void printFooter(){
+    out.println("</table>");
+    
+    out.println("</body>");
+    out.println("</html>");
+  }
   private void printGetterInfo(String functionName, String output){
     out.println("<tr>");
     out.println("<td>" + functionName + "</td>");
     out.println("<td>" + output + "</td>");
     out.println("</tr>");
   }
-  private void printFooter(){
-    out.println("</table>");
-    
-    out.println("</body>");
-    out.println("</html>");
+  private void printGetterInfo(String functionName, int output){
+    out.println("<tr>");
+    out.println("<td>" + functionName + "</td>");
+    out.println("<td>" + output + "</td>");
+    out.println("</tr>");
   }
 }
