@@ -24,9 +24,9 @@ public class Register extends HttpServlet{
   private void printForm(PrintWriter out) {
     out.println("<form action=\"store\" method=\"GET\">");
     
-    out.println("UserName: <input type=\"text\" name=\"username\">");
-    out.println("Email: <input type=\"text\" name=\"email\">");
-    out.println("<input type=\"submit\" value=\"저장\">");
+    out.println("UserName: <input type=\"text\" name=\"username\"></br>");
+    out.println("Email: <input type=\"text\" name=\"email\"></br>");
+    out.println("<input type=\"submit\" value=\"store\">");
     
     out.println("</form>");
   }
@@ -38,7 +38,12 @@ public class Register extends HttpServlet{
 
   private void printHeader(PrintWriter out, String title) {
     out.println("<html>");
-    out.println("<head><title>" + title + "</title></head>");
+    out.println("<head>");
+    
+    out.println("<meta charset=euc-kr>");
+    out.println("<title>" + title + "</title>");
+    
+    out.println("</head>");
     out.println("<body>");
   }
 }
