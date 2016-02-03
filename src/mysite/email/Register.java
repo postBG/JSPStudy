@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Register extends HttpServlet{
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException{
+    response.setCharacterEncoding("utf-8");
     PrintWriter out = response.getWriter();
     String title = "Register Page";
     
@@ -40,7 +41,7 @@ public class Register extends HttpServlet{
     out.println("<html>");
     out.println("<head>");
     
-    out.println("<meta charset=euc-kr>");
+    out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
     out.println("<title>" + title + "</title>");
     
     out.println("</head>");

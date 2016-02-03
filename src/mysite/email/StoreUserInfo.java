@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class StoreUserInfo extends HttpServlet{
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException{
-    request.setCharacterEncoding("euc-kr");
+    request.setCharacterEncoding("utf-8");
     PrintWriter out = response.getWriter();
     String title = "Store";
 
@@ -22,6 +22,16 @@ public class StoreUserInfo extends HttpServlet{
     String userName = request.getParameter(parameterNames.nextElement());
     String userEmail = request.getParameter(parameterNames.nextElement());
     
+    writeUserInfoAtFile(userName, userEmail);
+    
+    printHeader(out, title);
+    
+    out.println("hello");
+    
+    printFooter(out); 
+  }
+
+  private void writeUserInfoAtFile(String userName, String userEmail) throws IOException {
     BufferedWriter userInfoPrinter = new BufferedWriter(new FileWriter("user.txt", true));
 
     userInfoPrinter.write(userName);
@@ -30,12 +40,6 @@ public class StoreUserInfo extends HttpServlet{
     userInfoPrinter.newLine();
     
     userInfoPrinter.close();
-    
-    printHeader(out, title);
-    
-    out.println("hello");
-    
-    printFooter(out); 
   }
 
   private void printFooter(PrintWriter out) {
