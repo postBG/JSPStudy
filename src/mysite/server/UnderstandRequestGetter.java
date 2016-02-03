@@ -37,14 +37,6 @@ public class UnderstandRequestGetter extends HttpServlet {
       headerName = headerNames.nextElement();
       formattedFunctionName = "getHeader(" + headerName + ")";
       printGetterInfo(formattedFunctionName , request.getHeader(headerName));
-      
-      try{
-        formattedFunctionName = "getIntHeader(" + headerName + ")";
-        printGetterInfo(formattedFunctionName, request.getIntHeader(headerName));
-      }
-      catch(NumberFormatException e){
-        printGetterInfo(formattedFunctionName, "Cannot be converted to an integer.");
-      }
     }
     
     //printGetterInfo("getInputStream()", request.getInputStream());
