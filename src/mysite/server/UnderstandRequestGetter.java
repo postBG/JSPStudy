@@ -71,7 +71,7 @@ public class UnderstandRequestGetter extends HttpServlet {
     //printGetterInfo("getRequestDispatcher(String arg0)", request.getRequestDispatcher(null));
     printGetterInfo("getRequestedSessionId()", request.getRequestedSessionId());
     printGetterInfo("getRequestURI()", request.getRequestURI());
-    //printGetterInfo("getRequestURL()", request.getRequestURL());
+    printGetterInfo("getRequestURL()", request.getRequestURL());
     
     printGetterInfo("getScheme()", request.getScheme());
     printGetterInfo("getServerName()", request.getServerName());
@@ -95,6 +95,12 @@ public class UnderstandRequestGetter extends HttpServlet {
     out.println("<tr>");
     out.println("<td>" + functionName + "</td>");
     out.println("<td>" + output + "</td>");
+    out.println("</tr>");
+  }
+  private void printGetterInfo(String functionName, StringBuffer output){
+    out.println("<tr>");
+    out.println("<td>" + functionName + "</td>");
+    out.println("<td>" + output.toString() + "</td>");
     out.println("</tr>");
   }
   private void printGetterInfo(String functionName, int output){
