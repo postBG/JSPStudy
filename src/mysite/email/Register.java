@@ -23,8 +23,8 @@ public class Register extends HttpServlet{
   private void printForm(PrintWriter out) {
     out.println("<form action=\"store\" method=\"GET\">");
     
-    out.println("UserName: <input type=\"text\" name=\"username\"></br>");
-    out.println("Email: <input type=\"text\" name=\"email\"></br>");
+    out.println("UserName: <input type=\"text\" name=\"username\"><br>");
+    out.println("Email: <input type=\"text\" name=\"email\"><br>");
     out.println("<input type=\"submit\" value=\"store\">");
     
     out.println("</form>");
