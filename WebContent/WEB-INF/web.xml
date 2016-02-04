@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <servlet>
-    <servlet-name>hundredsum</servlet-name>
+    <servlet-name>hundred_sum</servlet-name>
     <servlet-class>mysite.server.Hundred</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>hundredsum</servlet-name>
+    <servlet-name>hundred_sum</servlet-name>
     <url-pattern>/hundred/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>tensum</servlet-name>
+    <servlet-name>ten_sum</servlet-name>
     <servlet-class>mysite.server.Ten</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>tensum</servlet-name>
+    <servlet-name>ten_sum</servlet-name>
     <url-pattern>/ten/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>understandrequestgetter</servlet-name>
+    <servlet-name>understand_request_getter</servlet-name>
     <servlet-class>mysite.server.UnderstandRequestGetter</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>understandrequestgetter</servlet-name>
-    <url-pattern>/understandrequest/*</url-pattern>
+    <servlet-name>understand_request_getter</servlet-name>
+    <url-pattern>/understand_request/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>register</servlet-name>
@@ -33,11 +33,19 @@
     <url-pattern>/register/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>storeuserinfo</servlet-name>
+    <servlet-name>store_userinfo</servlet-name>
     <servlet-class>mysite.email.StoreUserInfo</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>storeuserinfo</servlet-name>
+    <servlet-name>store_userinfo</servlet-name>
     <url-pattern>/store/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>list_userinfo</servlet-name>
+    <servlet-class>mysite.email.ListUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>list_userinfo</servlet-name>
+    <url-pattern>/list/*</url-pattern>
   </servlet-mapping>
 </web-app>

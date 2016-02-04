@@ -16,7 +16,7 @@ public class StoreUserInfo extends HttpServlet{
       throws ServletException, IOException{
     request.setCharacterEncoding("utf-8");
     PrintWriter out = response.getWriter();
-    String title = "Store";
+    String title = "Store User Infomation";
 
     Enumeration<String> parameterNames = request.getParameterNames();
     String userName = request.getParameter(parameterNames.nextElement());
@@ -49,7 +49,12 @@ public class StoreUserInfo extends HttpServlet{
 
   private void printHeader(PrintWriter out, String title) {
     out.println("<html>");
-    out.println("<head><title>" + title + "</title></head>");
+    out.println("<head>");
+    
+    out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
+    out.println("<title>" + title + "</title>");
+    
+    out.println("</head>");
     out.println("<body>");
   }
 }
