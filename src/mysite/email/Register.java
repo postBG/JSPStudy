@@ -16,9 +16,7 @@ public class Register extends HttpServlet{
     String title = "Register Page";
     
     printHeader(out, title);
-    
     printForm(out);
-    
     printFooter(out); 
   }
 
@@ -31,12 +29,6 @@ public class Register extends HttpServlet{
     
     out.println("</form>");
   }
-
-  private void printFooter(PrintWriter out) {
-    out.println("</body>");
-    out.println("</html>");
-  }
-
   private void printHeader(PrintWriter out, String title) {
     out.println("<html>");
     out.println("<head>");
@@ -46,5 +38,15 @@ public class Register extends HttpServlet{
     
     out.println("</head>");
     out.println("<body>");
+    
+    
+    String url = "http://localhost:8080/email/list";
+    String linkName = "List Page";
+    out.println("<a href=" + url + ">" + linkName + "</a>");
   }
+  private void printFooter(PrintWriter out) {
+    out.println("</body>");
+    out.println("</html>");
+  }
+
 }

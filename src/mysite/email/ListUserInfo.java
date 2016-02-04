@@ -29,6 +29,10 @@ public class ListUserInfo extends HttpServlet{
     response.setContentType("text/html;charset=utf-8");
   }
   private void printHeader(PrintWriter out, String title) {
+    printDocumentHeader(out, title);
+    printTableHeader(out);
+  }
+  private void printDocumentHeader(PrintWriter out, String title) {
     out.println("<html>");
     out.println("<head>");
     
@@ -38,7 +42,29 @@ public class ListUserInfo extends HttpServlet{
     out.println("</head>");
     out.println("<body>");
     
+    String url = "http://localhost:8080/email/register";
+    String linkName = "Register Page";
+    out.println("<a href=" + url + ">" + linkName + "</a>");
+  }
+  private void printTableHeader(PrintWriter out){
     out.println("<table>");
+    out.println("<tr>");
+    
+    out.println("<th>이름</th>");
+    out.println("<th>Email</th>");
+    
+    out.println("</tr>");
+  }
+  private void printFooter(PrintWriter out) {
+    printTableFooter(out);
+    printDocumentFooter(out);
+  }
+  private void printDocumentFooter(PrintWriter out) {
+    out.println("</body>");
+    out.println("</html>");
+  }
+  private void printTableFooter(PrintWriter out){
+    out.println("</table>");
   }
   private void listUpUserInfo(PrintWriter out){
     try {
@@ -67,12 +93,5 @@ public class ListUserInfo extends HttpServlet{
     out.println("<td>" + parsedUserInfo[1] + "</td>");
     out.println("</tr>");
   }
-  private void printFooter(PrintWriter out) {
-    out.println("</table>");
-    
-    out.println("</body>");
-    out.println("</html>");
-  }
-
  
 }
