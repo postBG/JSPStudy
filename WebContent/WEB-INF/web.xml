@@ -46,6 +46,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>list_userinfo</servlet-name>
-    <url-pattern>/list/*</url-pattern>
+    <url-pattern>/list</url-pattern>
   </servlet-mapping>
 </web-app>
