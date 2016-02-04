@@ -44,17 +44,17 @@ public class ListUserInfo extends HttpServlet{
     return null;
   }
   private static List<String[]> makeUserInfoListFromFile() throws FileNotFoundException, IOException {
-    BufferedReader in = new BufferedReader(new FileReader("user.txt"));
-    
     List<String[]> userInfoList = new LinkedList<String[]>();
     String unparsedUserInfo;
     String[] parsedUserInfo;
+
+    BufferedReader in = new BufferedReader(new FileReader("user.txt"));
     while((unparsedUserInfo = in.readLine()) != null){
       parsedUserInfo = unparsedUserInfo.split(",");
       userInfoList.add(parsedUserInfo);
     }
-    
     in.close();
+    
     return userInfoList;
   }
   
