@@ -15,10 +15,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ListUserInfo extends HttpServlet{
+  
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    setCharEncoding(request, response);
+    setCharEncoding(request, response, "utf-8");
     List<String[]> userInfoList = listUpUserInfo();
     forwardUserInfoListToView(request, response, userInfoList);
+  }
+  
+  private void setCharEncoding(HttpServletRequest request, HttpServletResponse response, String encoding) throws UnsupportedEncodingException {
+    request.setCharacterEncoding(encoding);
+    
+    String contextTypeInfo = "text/html;charset=" + encoding;
+    response.setContentType(contextTypeInfo);
   }
   private void forwardUserInfoListToView(HttpServletRequest request, HttpServletResponse response, List<String[]> userInfoList) throws ServletException, IOException {
     request.setAttribute("UserInfoList", userInfoList);
@@ -49,9 +57,6 @@ public class ListUserInfo extends HttpServlet{
     in.close();
     return userInfoList;
   }
-  private void setCharEncoding(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
-    request.setCharacterEncoding("utf-8");
-    response.setContentType("text/html;charset=utf-8");
-  }
+  
  
 }
