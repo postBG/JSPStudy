@@ -15,18 +15,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ListUserInfo extends HttpServlet{
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
-      throws ServletException, IOException{
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     setCharEncoding(request, response);
-    
     List<String[]> userInfoList = listUpUserInfo();
+    forwardUserInfoListToView(request, response, userInfoList);
+  }
+  private void forwardUserInfoListToView(HttpServletRequest request, HttpServletResponse response, List<String[]> userInfoList) throws ServletException, IOException {
     request.setAttribute("UserInfoList", userInfoList);
     RequestDispatcher rd = request.getRequestDispatcher("ListUp.jsp");
     rd.forward(request, response);
   }
   private static List<String[]> listUpUserInfo(){
     try {
-      return parseAndPrintUserInfo();
+      return makeUserInfoListFromFile();
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     } catch (IOException e) {
@@ -34,7 +35,7 @@ public class ListUserInfo extends HttpServlet{
     }
     return null;
   }
-  private static List<String[]> parseAndPrintUserInfo() throws FileNotFoundException, IOException {
+  private static List<String[]> makeUserInfoListFromFile() throws FileNotFoundException, IOException {
     BufferedReader in = new BufferedReader(new FileReader("user.txt"));
     
     List<String[]> userInfoList = new LinkedList<String[]>();
