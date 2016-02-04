@@ -8,7 +8,8 @@
 </head>
 <body>
   <a href="http://localhost:8080/email/list">List Page</a>
-  <form action="store" method="GET">
+  
+  <form action="register" method="GET">
     UserName: <input type="text" name="username"><br>
     Email: <input type="text" name="email"><br>
     <input type="submit" value="저장"> 

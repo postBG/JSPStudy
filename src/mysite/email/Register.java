@@ -1,7 +1,10 @@
 package mysite.email;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,42 +14,29 @@ import javax.servlet.http.HttpServletResponse;
 public class Register extends HttpServlet{
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException{
+    setCharEncoding(request, response);
+    Enumeration<String> parameterNames = request.getParameterNames();
+    String userName = request.getParameter(parameterNames.nextElement());
+    String userEmail = request.getParameter(parameterNames.nextElement());
+    
+    writeUserInfoAtFile(userName, userEmail);
+    
+    response.sendRedirect("http://localhost:8080/email/list");
+  }
+
+  private void setCharEncoding(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
     response.setCharacterEncoding("utf-8");
-    PrintWriter out = response.getWriter();
-    String title = "Register Page";
-    
-    printHeader(out, title);
-    printForm(out);
-    printFooter(out); 
+    request.setCharacterEncoding("utf-8");
   }
+  
+  private void writeUserInfoAtFile(String userName, String userEmail) throws IOException {
+    BufferedWriter userInfoPrinter = new BufferedWriter(new FileWriter("user.txt", true));
 
-  private void printForm(PrintWriter out) {
-    out.println("<form action=\"store\" method=\"GET\">");
+    userInfoPrinter.write(userName);
+    userInfoPrinter.write(",");
+    userInfoPrinter.write(userEmail);
+    userInfoPrinter.newLine();
     
-    out.println("UserName: <input type=\"text\" name=\"username\"><br>");
-    out.println("Email: <input type=\"text\" name=\"email\"><br>");
-    out.println("<input type=\"submit\" value=\"store\">");
-    
-    out.println("</form>");
+    userInfoPrinter.close();
   }
-  private void printHeader(PrintWriter out, String title) {
-    out.println("<html>");
-    out.println("<head>");
-    
-    out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
-    out.println("<title>" + title + "</title>");
-    
-    out.println("</head>");
-    out.println("<body>");
-    
-    
-    String url = "http://localhost:8080/email/list";
-    String linkName = "List Page";
-    out.println("<a href=" + url + ">" + linkName + "</a>");
-  }
-  private void printFooter(PrintWriter out) {
-    out.println("</body>");
-    out.println("</html>");
-  }
-
 }

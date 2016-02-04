@@ -33,19 +33,11 @@
     <url-pattern>/register/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>store_userinfo</servlet-name>
-    <servlet-class>mysite.email.StoreUserInfo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>store_userinfo</servlet-name>
-    <url-pattern>/store/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>list_userinfo</servlet-name>
     <servlet-class>mysite.email.ListUserInfo</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>list_userinfo</servlet-name>
-    <url-pattern>/list</url-pattern>
+    <url-pattern>/list/*</url-pattern>
   </servlet-mapping>
 </web-app>

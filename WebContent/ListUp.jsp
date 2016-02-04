@@ -14,7 +14,6 @@
       <th>이름</th>
       <th>Email</th>
     </tr>
-    
     <c:forEach var="userInfo" items="${UserInfoList}">
       <tr>
         <td>${userInfo[0]}</td>
