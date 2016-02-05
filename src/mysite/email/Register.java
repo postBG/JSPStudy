@@ -19,8 +19,13 @@ public class Register extends HttpServlet{
     String userName = request.getParameter(parameterNames.nextElement());
     String userEmail = request.getParameter(parameterNames.nextElement());
     
-    writeUserInfoAtFile(userName, userEmail);
-    response.sendRedirect("http://localhost:8080/email/list");
+    if(userName.isEmpty() || userEmail.isEmpty()){
+      response.sendRedirect("http://localhost:8080/email/Register.jsp");
+    }
+    else{
+      writeUserInfoAtFile(userName, userEmail);
+      response.sendRedirect("http://localhost:8080/email/list");
+    }
   }
   private void setCharEncoding(HttpServletRequest request, HttpServletResponse response, String encoding) throws UnsupportedEncodingException {
     response.setCharacterEncoding(encoding);
