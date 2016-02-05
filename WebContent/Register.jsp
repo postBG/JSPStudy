@@ -10,11 +10,12 @@
 <body>
   <a href="http://localhost:8080/email/list">List Page</a>
   
-  <form action="register" method="GET">
+  <form action="register" method="GET" id="user_info">
     <p>고객의 정보를 입력해주세요.</p>
     UserName: <input type="text" name="username" id="username"><br>
     Email: <input type="text" name="email" id="email"><br>
     <input type="submit" value="저장">
+    <div id="success_msg"></div>
     <div id="username_error"></div>
     <div id="password_error"></div>
   </form>

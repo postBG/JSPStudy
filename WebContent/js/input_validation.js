@@ -1,3 +1,5 @@
+var errorCode = [0, -1, -2];
+
 $(document).ready(function(){
   
   $("#username").on("input", function(){
@@ -23,4 +25,23 @@ $(document).ready(function(){
       $("#password_error").html("");
     }
   });
+  
+  $("#user_info").submit(function(event){
+    if(!isUserNameValid() || !isEmailValid()){
+      event.preventDefault();
+    }
+  });
 });
+
+function isUserNameValid(){
+  var userNameLength = $("#username").val().length;
+  
+  return userNameLength == 0 || userNameLength < 2;
+}
+
+function isEmailValid(){
+  var email = $("#email").val();
+  var reg_email=/^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{0}[-A-Za-z0-9_.]*$/;
+  
+  return email.search(reg_email) != -1;
+}
