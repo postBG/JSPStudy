@@ -20,7 +20,8 @@ public class Register extends HttpServlet{
     String userEmail = request.getParameter(parameterNames.nextElement());
     
     writeUserInfoAtFile(userName, userEmail);
-    response.sendRedirect("http://localhost:8080/email/list");
+    response.getWriter().write(userName);
+    
   }
   private void setCharEncoding(HttpServletRequest request, HttpServletResponse response, String encoding) throws UnsupportedEncodingException {
     response.setCharacterEncoding(encoding);
