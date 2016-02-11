@@ -19,10 +19,8 @@ public class Register extends HttpServlet{
     String userName = request.getParameter(parameterNames.nextElement());
     String userEmail = request.getParameter(parameterNames.nextElement());
     
-   
     writeUserInfoAtFile(userName, userEmail);
     response.getWriter().write(userName);
-    //response.sendRedirect("http://localhost:8080/email/list");
     
   }
   private void setCharEncoding(HttpServletRequest request, HttpServletResponse response, String encoding) throws UnsupportedEncodingException {
