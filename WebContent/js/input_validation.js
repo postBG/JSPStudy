@@ -27,10 +27,10 @@ function makeEmailValidation(email){
 function showWarningColor(idString, validationMsg){
   
   if(validationMsg !== ""){
-    $(idString).css("border-color", "red");
+    $(idString).css("border", "1px solid #ff0000");
     return;
   }
-  $(idString).css("border-color", "");
+  $(idString).css("border", "1px solid #000000");
 }
 
 $(document).ready(function() {
