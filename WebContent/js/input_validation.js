@@ -30,6 +30,12 @@ $(document).ready(function() {
     var username = $(this).val(); 
     var validationMsg = makeUserNameMsg(username);
     $("#username_error").html(validationMsg);
+    
+    if(validationMsg !== ""){
+      $(this).css("border-color", "red");
+      return;
+    }
+    $(this).css("border-color", "");
   });
 
   $("#email").on("input", function() {
