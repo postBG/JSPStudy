@@ -24,24 +24,29 @@ function makeEmailValidation(email){
   return "";
 }
 
+function showWarningColor(idString, validationMsg){
+  
+  if(validationMsg !== ""){
+    $(idString).css("border-color", "red");
+    return;
+  }
+  $(idString).css("border-color", "");
+}
+
 $(document).ready(function() {
 
   $("#username").on("input", function() {
     var username = $(this).val(); 
     var validationMsg = makeUserNameMsg(username);
     $("#username_error").html(validationMsg);
-    
-    if(validationMsg !== ""){
-      $(this).css("border-color", "red");
-      return;
-    }
-    $(this).css("border-color", "");
+    showWarningColor("#username", validationMsg);
   });
 
   $("#email").on("input", function() {
     var email = $(this).val();
     var validationMsg = makeEmailValidation(email);
     $("#password_error").html(validationMsg);
+    showWarningColor("#email", validationMsg);
   });
 
   $("#user_info").submit(function() {
