@@ -14,13 +14,13 @@ public class Register extends HttpServlet{
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     setCharEncoding(request, response, "utf-8");
     
-    String userName = request.getParameter("username");
-    String userEmail = request.getParameter("email");
+    String name = request.getParameter("username");
+    String email = request.getParameter("email");
     
-    Recipient recipient = new Recipient(userName,userEmail);
+    Recipient recipient = new Recipient(name,email);
     recipientStore.write(recipient);
     
-    response.getWriter().write(userName);
+    response.getWriter().write(name);
     
   }
   private void setCharEncoding(HttpServletRequest request, HttpServletResponse response, String encoding) throws UnsupportedEncodingException {
