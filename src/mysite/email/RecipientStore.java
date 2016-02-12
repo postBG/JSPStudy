@@ -48,14 +48,6 @@ public class RecipientStore {
     return recipients;
   }
   
-  /*
-  void write(String recipientName, String recipientEmail) throws IOException {
-    Recipient recipient = new Recipient(recipientName,recipientEmail);
-    
-    write(recipient);
-  }
-  */
-
   public void write(Recipient recipient) throws IOException {
     BufferedWriter recipientInfoPrinter = new BufferedWriter(new FileWriter(RECIPIENT_FILENAME, true));
   
