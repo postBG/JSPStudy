@@ -25,10 +25,7 @@ public class RecipientStore {
       
       while((record = in.readLine()) != null){
         String[] fields = record.split(FIELD_DELIMITER);
-        String name = fields[0];
-        String email = fields[1];
-        
-        Recipient recipient = new Recipient(name, email);
+        Recipient recipient = new Recipient(fields[0], fields[1]);
         
         recipients.add(recipient);
       }

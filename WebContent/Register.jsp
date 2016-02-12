@@ -12,7 +12,7 @@
   
   <form id="recipient_info">
     <p>고객의 정보를 입력해주세요.</p>
-    Name: <input type="text" name="username" id="name"><br>
+    Name: <input type="text" name="name" id="name"><br>
     Email: <input type="text" name="email" id="email"><br>
     <input type="submit" value="저장">
     <div id="success_msg"></div>

@@ -57,7 +57,7 @@ $(document).ready(function() {
       return false;
     }
     
-    var url = "/email/store?username=" + username + "&email=" + email;
+    var url = "/email/store?name=" + username + "&email=" + email;
     $.get(url, function(userName){
       $("#success_msg").html(userName + "님의 정보를 성공적으로 저장했습니다.");
     });
