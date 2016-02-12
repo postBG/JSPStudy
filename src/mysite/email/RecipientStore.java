@@ -13,8 +13,8 @@ public class RecipientStore {
 
   private static final String RECIPIENT_FILENAME = "user.txt";
   private static final String FIELD_DELIMITER = ",";
-
-  public List<Recipient> list() {
+  
+  public static List<Recipient> list() {
     BufferedReader in = null;
     List<Recipient> recipients = new LinkedList<Recipient>();
     
@@ -33,9 +33,13 @@ public class RecipientStore {
       return recipients;
       
     } catch (FileNotFoundException e) {
-      e.printStackTrace(); 
-    } catch (IOException e) {
+      
       e.printStackTrace();
+      
+    } catch (IOException e) {
+      
+      e.printStackTrace();
+      
     } finally {
       if ( in != null ) {
         try {
@@ -45,6 +49,7 @@ public class RecipientStore {
         }
       }
     }
+    
     return recipients;
   }
   
@@ -57,5 +62,4 @@ public class RecipientStore {
     recipientInfoPrinter.close();
   }
   
-
 }

@@ -58,8 +58,8 @@ $(document).ready(function() {
     }
     
     var url = "/email/store?name=" + name + "&email=" + email;
-    $.get(url, function(name){
-      $("#success_msg").html(name + "님의 정보를 성공적으로 저장했습니다.");
+    $.get(url, function(msg){
+      $("#success_msg").html(msg);
     });
     return false;
   });
