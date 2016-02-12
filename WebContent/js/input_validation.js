@@ -50,16 +50,16 @@ $(document).ready(function() {
   });
 
   $("#recipient_info").submit(function() {
-    var username=$("#name").val();
+    var name=$("#name").val();
     var email=$("#email").val();
     
-    if(makeUserNameMsg(username) !== "" || makeEmailValidation(email) !== ""){
+    if(makeUserNameMsg(name) !== "" || makeEmailValidation(email) !== ""){
       return false;
     }
     
-    var url = "/email/store?name=" + username + "&email=" + email;
-    $.get(url, function(userName){
-      $("#success_msg").html(userName + "님의 정보를 성공적으로 저장했습니다.");
+    var url = "/email/store?name=" + name + "&email=" + email;
+    $.get(url, function(name){
+      $("#success_msg").html(name + "님의 정보를 성공적으로 저장했습니다.");
     });
     return false;
   });

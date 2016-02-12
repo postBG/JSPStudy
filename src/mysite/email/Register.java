@@ -21,7 +21,6 @@ public class Register extends HttpServlet{
     recipientStore.write(recipient);
     
     response.getWriter().write(name);
-    
   }
   private void setCharEncoding(HttpServletRequest request, HttpServletResponse response, String encoding) throws UnsupportedEncodingException {
     response.setCharacterEncoding(encoding);
