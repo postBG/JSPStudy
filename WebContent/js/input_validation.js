@@ -1,5 +1,5 @@
-function makeUserNameMsg(username){
-   var len = username.length;
+function makeUserNameMsg(name){
+   var len = name.length;
    
    if (len == 0) {
      return "이름을 입력해주세요.";
@@ -35,22 +35,22 @@ function showWarningColor(idString, validationMsg){
 
 $(document).ready(function() {
 
-  $("#username").on("input", function() {
+  $("#name").on("input", function() {
     var username = $(this).val(); 
     var validationMsg = makeUserNameMsg(username);
-    $("#username_error").html(validationMsg);
-    showWarningColor("#username", validationMsg);
+    $("#name_error").html(validationMsg);
+    showWarningColor("#name", validationMsg);
   });
 
   $("#email").on("input", function() {
     var email = $(this).val();
     var validationMsg = makeEmailValidation(email);
-    $("#password_error").html(validationMsg);
+    $("#email_error").html(validationMsg);
     showWarningColor("#email", validationMsg);
   });
 
-  $("#user_info").submit(function() {
-    var username=$("#username").val();
+  $("#recipient_info").submit(function() {
+    var username=$("#name").val();
     var email=$("#email").val();
     
     if(makeUserNameMsg(username) !== "" || makeEmailValidation(email) !== ""){

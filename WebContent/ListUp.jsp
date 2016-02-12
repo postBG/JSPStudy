@@ -13,10 +13,10 @@
       <th>이름</th>
       <th>Email</th>
     </tr>
-    <c:forEach var="userInfo" items="${UserInfoList}">
+    <c:forEach var="recipient" items="${recipients}">
       <tr>
-        <td>${userInfo[0]}</td>
-        <td>${userInfo[1]}</td>
+        <td>${recipient.name}</td>
+        <td>${recipient.email}</td>
       </tr>
     </c:forEach>
   </table>
