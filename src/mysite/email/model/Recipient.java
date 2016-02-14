@@ -1,4 +1,4 @@
-package mysite.email;
+package mysite.email.model;
 
 public class Recipient {
 

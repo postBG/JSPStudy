@@ -1,4 +1,4 @@
-package mysite.email;
+package mysite.email.dao;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,12 +9,14 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import mysite.email.model.Recipient;
+
 public class RecipientStore {
 
   private static final String RECIPIENT_FILENAME = "user.txt";
   private static final String FIELD_DELIMITER = ",";
   
-  public static List<Recipient> list() {
+  public List<Recipient> list() {
     BufferedReader in = null;
     List<Recipient> recipients = new LinkedList<Recipient>();
     

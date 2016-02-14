@@ -9,19 +9,11 @@
     <url-pattern>/register/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>store</servlet-name>
-    <servlet-class>mysite.email.Register</servlet-class>
+    <servlet-name>email</servlet-name>
+    <servlet-class>mysite.email.EmailServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>store</servlet-name>
-    <url-pattern>/store/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>list_userinfo</servlet-name>
-    <servlet-class>mysite.email.ListUserInfo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>list_userinfo</servlet-name>
-    <url-pattern>/list/*</url-pattern>
+    <servlet-name>email</servlet-name>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
 </web-app>
