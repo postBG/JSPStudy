@@ -17,6 +17,11 @@ public class RecipientController {
   private RecipientStore recipientStore;
   private RecipientService recipientService;
 
+  public RecipientController() {
+    this.recipientStore = new RecipientStore();
+    this.recipientService = new RecipientService();
+  }
+  
   public RecipientController(RecipientStore recipientStore) {
     this.recipientStore = recipientStore;
   }
@@ -49,7 +54,7 @@ public class RecipientController {
     String email = request.getParameter("email");
     
     Recipient recipient = new Recipient(name,email);
-    
+     
     String message = "";
     if( recipientService.hasDuplicatedEmail(recipient) ){
       message = "이미 존재하는 이메일 주소입니다.";

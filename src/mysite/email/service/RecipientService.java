@@ -19,7 +19,7 @@ public class RecipientService {
 
   public boolean hasDuplicatedEmail(Recipient newRecipient){
     List<Recipient> recipients = recipientStore.list();
-    
+
     for(Recipient recipient : recipients){
       String storedEmail = recipient.getEmail();
       if(storedEmail.equals(newRecipient.getEmail())){

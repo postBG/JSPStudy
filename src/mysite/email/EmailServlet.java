@@ -14,7 +14,7 @@ import mysite.email.dao.RecipientStore;
 
 public class EmailServlet extends HttpServlet{
   
-  RecipientController recipientController = new RecipientController(new RecipientStore());
+  RecipientController recipientController = new RecipientController();
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     setCharEncoding(request, response, "utf-8");
