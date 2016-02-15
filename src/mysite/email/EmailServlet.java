@@ -18,7 +18,6 @@ public class EmailServlet extends HttpServlet{
     setCharEncoding(request, response, "utf-8");
     String pathInfo = request.getServletPath();
     
-    System.out.println(pathInfo);
     if ( pathInfo.startsWith("/list")){
       recipientController.processList(request, response);
     }

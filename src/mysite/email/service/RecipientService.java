@@ -30,4 +30,8 @@ public class RecipientService {
     return false;
   }
 
+  public List<Recipient> list() {
+    return recipientStore.list();
+  }
+
 }

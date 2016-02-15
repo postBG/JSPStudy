@@ -13,32 +13,14 @@ import mysite.email.model.Recipient;
 import mysite.email.service.RecipientService;
 
 public class RecipientController {
-  private RecipientStore recipientStore;
   private RecipientService recipientService;
 
   public RecipientController() {
-    this.recipientStore = new RecipientStore();
     this.recipientService = new RecipientService();
-  }
-  
-  public RecipientController(RecipientStore recipientStore) {
-    this.recipientStore = recipientStore;
-  }
-
-  public RecipientController(RecipientService recipientService) {
-    this.recipientService = recipientService;
-  }
-
-  public RecipientStore getRecipientStore() {
-    return recipientStore;
-  }
-
-  public void setRecipientStore(RecipientStore recipientStore) {
-    this.recipientStore = recipientStore;
   }
 
   public void processList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    List<Recipient> recipients = getRecipientStore().list();
+    List<Recipient> recipients = recipientService.list();
     request.setAttribute("recipients", recipients);
     forwardUserInfoListToView(request, response);
   }

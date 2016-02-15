@@ -12,7 +12,7 @@ import mysite.email.controller.RecipientController;
 import mysite.email.service.RecipientService;
 
 public class Register extends HttpServlet{
-  RecipientController recipientController = new RecipientController(new RecipientService());
+  RecipientController recipientController = new RecipientController();
   
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     setCharEncoding(request, response, "utf-8");
