@@ -7,7 +7,7 @@
 <title>List User Information</title>
 </head>
 <body>
-  <a href="http://localhost:8080/email/register">Register Page</a>
+  <a href="http://localhost:8080/email/register.do">Register Page</a>
   <table>
     <tr>
       <th>이름</th>

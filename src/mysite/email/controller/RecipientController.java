@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mysite.email.dao.RecipientStore;
 import mysite.email.model.Recipient;
 import mysite.email.service.RecipientService;
 
@@ -47,6 +46,11 @@ public class RecipientController {
     }
     request.setAttribute("message", message);
     RequestDispatcher rd = request.getRequestDispatcher("message.jsp");
+    rd.forward(request, response);
+  }
+
+  public void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    RequestDispatcher rd = request.getRequestDispatcher("Register.jsp");
     rd.forward(request, response);
   }
 }
