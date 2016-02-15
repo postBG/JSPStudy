@@ -8,7 +8,7 @@
 <title>Register Page</title>
 </head>
 <body>
-  <a href="http://localhost:8080/email/list">List Page</a>
+  <a href="http://localhost:8080/email/list.do">List Page</a>
   
   <form id="recipient_info">
     <p>고객의 정보를 입력해주세요.</p>

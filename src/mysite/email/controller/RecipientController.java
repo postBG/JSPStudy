@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mysite.email.Register;
 import mysite.email.dao.RecipientStore;
 import mysite.email.model.Recipient;
 import mysite.email.service.RecipientService;
