@@ -57,7 +57,7 @@ $(document).ready(function() {
       return false;
     }
     
-    var url = "/email/store?name=" + name + "&email=" + email;
+    var url = "/email/store.do?name=" + name + "&email=" + email;
     $.get(url, function(msg){
       $("#success_msg").html(msg);
     });

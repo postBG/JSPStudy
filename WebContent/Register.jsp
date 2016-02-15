@@ -8,12 +8,18 @@
 <title>Register Page</title>
 </head>
 <body>
-  <a href="http://localhost:8080/email/list">List Page</a>
+  <a href="http://localhost:8080/email/list.do">List Page</a>
   
   <form id="recipient_info">
     <p>고객의 정보를 입력해주세요.</p>
-    Name: <input type="text" name="name" id="name"><br>
-    Email: <input type="text" name="email" id="email"><br>
+    <table>
+      <tr>
+        <td>Name:</td> <td><input type="text" name="name" id="name"></td>
+       </tr>
+      <tr>
+        <td>Email:</td> <td><input type="text" name="email" id="email"></td>
+      </tr>
+    </table>
     <input type="submit" value="저장">
     <div id="success_msg"></div>
     <div id="name_error"></div>
