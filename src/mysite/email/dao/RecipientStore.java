@@ -13,7 +13,7 @@ import mysite.email.model.Recipient;
 
 public class RecipientStore {
 
-  private static final String RECIPIENT_FILENAME = "user.txt";
+  private static final String RECIPIENT_FILENAME = "C:\\Users\\postBG\\Desktop\\sts-bundle\\sts-3.7.2.RELEASE\\user.txt";
   private static final String FIELD_DELIMITER = ",";
   
   public List<Recipient> list() {
@@ -62,6 +62,11 @@ public class RecipientStore {
     recipientInfoPrinter.newLine();
     
     recipientInfoPrinter.close();
+  }
+
+  public void setRecipientStore(RecipientStore recipientStore) {
+    // TODO Auto-generated method stub
+    
   }
   
 }

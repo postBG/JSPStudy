@@ -53,4 +53,13 @@ public class RecipientController {
     RequestDispatcher rd = request.getRequestDispatcher("Register.jsp");
     rd.forward(request, response);
   }
+
+  public void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String searchWord = request.getParameter("search_word");
+    List<Recipient> searchResult = recipientService.searchRecipient(searchWord);
+    
+    request.setAttribute("searchResult", searchResult);
+    RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
+    rd.forward(request, response);
+  }
 }

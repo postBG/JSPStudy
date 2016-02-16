@@ -1,6 +1,7 @@
 package mysite.email.service;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 import mysite.email.dao.RecipientStore;
@@ -32,6 +33,27 @@ public class RecipientService {
 
   public List<Recipient> list() {
     return recipientStore.list();
+  }
+
+  public List<Recipient> searchRecipient(String searchWord) {
+    List<Recipient> searchResult = new LinkedList<Recipient>();
+    List<Recipient> recipients = recipientStore.list();
+    
+    for(Recipient recipient : recipients){
+      if(recipient.getName().equals(searchWord)){
+        searchResult.add(recipient);
+      }
+      
+      if(recipient.getEmail().equals(searchWord)){
+        searchResult.add(recipient);
+      }
+    }
+    
+    return searchResult;
+  }
+
+  public void setRecipientStore(RecipientStore recipientStore) {
+    this.recipientStore = recipientStore;
   }
 
 }
