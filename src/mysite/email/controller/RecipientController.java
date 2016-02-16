@@ -55,9 +55,8 @@ public class RecipientController {
   }
 
   public void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    List<Recipient> recipients = recipientService.list();
     String searchWord = request.getParameter("search_word");
-    List<Recipient> searchResult = recipientService.searchRecipient(recipients, searchWord);
+    List<Recipient> searchResult = recipientService.searchRecipient(searchWord);
     
     request.setAttribute("searchResult", searchResult);
     RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");

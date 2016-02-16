@@ -63,5 +63,10 @@ public class RecipientStore {
     
     recipientInfoPrinter.close();
   }
+
+  public void setRecipientStore(RecipientStore recipientStore) {
+    // TODO Auto-generated method stub
+    
+  }
   
 }

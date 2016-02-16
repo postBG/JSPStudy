@@ -35,8 +35,10 @@ public class RecipientService {
     return recipientStore.list();
   }
 
-  public List<Recipient> searchRecipient(List<Recipient> recipients, String searchWord) {
+  public List<Recipient> searchRecipient(String searchWord) {
     List<Recipient> searchResult = new LinkedList<Recipient>();
+    List<Recipient> recipients = recipientStore.list();
+    
     for(Recipient recipient : recipients){
       String name = recipient.getName();
       if(name.equals(searchWord)){
@@ -50,6 +52,10 @@ public class RecipientService {
     }
     
     return searchResult;
+  }
+
+  public void setRecipientStore(RecipientStore recipientStore) {
+    this.recipientStore = recipientStore;
   }
 
 }
