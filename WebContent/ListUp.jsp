@@ -21,17 +21,20 @@
     </div>
   </form>
   
-  <table>
-    <tr>
-      <th>이름</th>
-      <th>Email</th>
-    </tr>
-    <c:forEach var="recipient" items="${recipients}">
-      <tr>
-        <td>${recipient.name}</td>
-        <td>${recipient.email}</td>
-      </tr>
-    </c:forEach>
-  </table>
+  <div id="default_list">
+	  <table>
+	    <tr>
+	      <th>이름</th>
+	      <th>Email</th>
+	    </tr>
+	    <c:forEach var="recipient" items="${recipients}">
+	      <tr>
+	        <td>${recipient.name}</td>
+	        <td>${recipient.email}</td>
+	      </tr>
+	    </c:forEach>
+	  </table>
+  </div>
+  
 </body>
 </html>
