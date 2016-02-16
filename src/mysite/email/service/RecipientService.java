@@ -39,13 +39,11 @@ public class RecipientService {
     List<Recipient> searchResult = new LinkedList<Recipient>();
     for(Recipient recipient : recipients){
       String name = recipient.getName();
-      System.out.println(name);
       if(name.equals(searchWord)){
         searchResult.add(recipient);
       }
       
       String email = recipient.getEmail();
-      System.out.println(email);
       if(email.equals(searchWord)){
         searchResult.add(recipient);
       }
