@@ -40,13 +40,11 @@ public class RecipientService {
     List<Recipient> recipients = recipientStore.list();
     
     for(Recipient recipient : recipients){
-      String name = recipient.getName();
-      if(name.equals(searchWord)){
+      if(recipient.getName().equals(searchWord)){
         searchResult.add(recipient);
       }
       
-      String email = recipient.getEmail();
-      if(email.equals(searchWord)){
+      if(recipient.getEmail().equals(searchWord)){
         searchResult.add(recipient);
       }
     }

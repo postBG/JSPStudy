@@ -67,5 +67,14 @@ public class RecipientServiceTest {
     assertEquals("무민", recipient2.getName());
     assertEquals("eooeis", recipient2.getEmail());
   }
-
+  
+  @Test
+  public void falseWhenNoDuplicate(){
+    assertFalse(recipientService.hasDuplicatedEmail(new Recipient("없는 이름", "없는 이메일")));
+  }
+  
+  @Test
+  public void trueWhenDuplicate(){
+    assertTrue(recipientService.hasDuplicatedEmail(new Recipient("없는 이름", "qwerr")));
+  }
 }
