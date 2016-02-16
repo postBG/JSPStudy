@@ -27,6 +27,9 @@ public class EmailServlet extends HttpServlet{
     else if( pathInfo.startsWith("/register")){
       recipientController.register(request, response);
     }
+    else if( pathInfo.startsWith("/search")){
+      recipientController.search(request, response);
+    }
     
   }
 

@@ -1,6 +1,7 @@
 package mysite.email.controller;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -51,6 +52,35 @@ public class RecipientController {
 
   public void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     RequestDispatcher rd = request.getRequestDispatcher("Register.jsp");
+    rd.forward(request, response);
+  }
+
+  public void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    List<Recipient> recipients = recipientService.list();
+    
+    String searchWord = request.getParameter("search_word");
+    
+    List<Recipient> searchResult = new LinkedList<Recipient>();
+    for(Recipient recipient : recipients){
+      String name = recipient.getName();
+      System.out.println(name);
+      if(name.equals(searchWord)){
+        searchResult.add(recipient);
+      }
+      
+      String email = recipient.getEmail();
+      System.out.println(email);
+      if(email.equals(searchWord)){
+        searchResult.add(recipient);
+      }
+    }
+    
+    for(Recipient recipient : searchResult){
+      System.out.println("Name: " + recipient.getName() + ", " + "Email: " + recipient.getEmail());
+    }
+    
+    request.setAttribute("searchResult", searchResult);
+    RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
     rd.forward(request, response);
   }
 }
