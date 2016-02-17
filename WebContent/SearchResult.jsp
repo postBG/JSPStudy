@@ -3,13 +3,13 @@
 
 <table class="table table-condensed">
   <tr>
-    <th>이름</th>
-    <th>Email</th>
+    <th id="name_header">이름</th>
+    <th id="email_header">Email</th>
   </tr>
 	<c:forEach var="recipient" items="${searchResult}">
 	  <tr>
-	    <td>${recipient.name}</td>
-	    <td>${recipient.email}</td>
+	    <td class="name_col">${recipient.name}</td>
+	    <td class="email_col">${recipient.email}</td>
 	  </tr>
 	</c:forEach>
 </table>

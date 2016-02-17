@@ -21,28 +21,30 @@
       </li>
     </ul>
   </nav>
-
-  <form id="search">
-    <div class="input-group">
-      <input type="text"  name="search_word" id="search_word" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <input type="submit" value="Go!" class="btn btn-default">
-      </span>
-    </div>
-    <div id="search_result">
-    </div>
-  </form>
+  
+  <div id="search_section">
+	  <form id="search">
+	    <div class="input-group">
+	      <input type="text"  name="search_word" id="search_word" class="form-control" placeholder="Search for...">
+	      <span class="input-group-btn">
+	        <input type="submit" value="Go!" class="btn btn-default">
+	      </span>
+	    </div>
+	    <div id="search_result">
+	    </div>
+	  </form>
+  </div>
   
   <div id="default_list">
 	  <table class="table table-condensed">
 	    <tr>
-	      <th>이름</th>
-	      <th>Email</th>
+	      <th id="name_header">이름</th>
+	      <th id="email_header">Email</th>
 	    </tr>
 	    <c:forEach var="recipient" items="${recipients}">
 	      <tr>
-	        <td>${recipient.name}</td>
-	        <td>${recipient.email}</td>
+	        <td class="name_col">${recipient.name}</td>
+	        <td class="email_col">${recipient.email}</td>
 	      </tr>
 	    </c:forEach>
 	  </table>
