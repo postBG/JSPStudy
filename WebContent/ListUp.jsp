@@ -30,12 +30,13 @@
 	        <input type="submit" value="Go!" class="btn btn-default">
 	      </span>
 	    </div>
-	    <div id="search_result">
-	    </div>
 	  </form>
   </div>
   
-  <div id="default_list">
+  <div id="search_result" class="recipient_table">
+  </div>
+  
+  <div id="default_list" class="recipient_table">
 	  <table class="table table-condensed">
 	    <tr>
 	      <th id="name_header">이름</th>
