@@ -21,20 +21,24 @@
     </ul>
   </nav>
     
-  <h1 id="form_name">고객의 정보를 입력해주세요.</h1>
-  <form id="recipient_info">
-    <div class="input-group">
-      <span class="input-group-addon">Name</span>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Recipient's name" >
-    </div>
-    <div class="input-group">
-      <input type="text" class="form-control" id="email" placeholder="Recipient's email" name="email">
-      <span class="input-group-addon">@mysite.com</span>
-    </div>
-    <input type="submit" value="저장">
-    <div id="success_msg"></div>
-    <div id="name_error"></div>
-    <div id="email_error"></div>
-  </form>
+  <div id="recipient_info_form">
+    <h1 id="form_name">Register Recipient</h1>
+	  <form id="recipient_info">
+	    <div id="success_msg" role="alert"></div>
+	    <div class="input-group">
+	      <span class="input-group-addon" id="name_title">Name</span>
+	      <input type="text" class="form-control" id="name" name="name" placeholder="Recipient's name" >
+	    </div>
+	    <div class="input-group">
+	      <input type="text" class="form-control" id="email" placeholder="Recipient's email" name="email">
+	      <span class="input-group-addon" id="email_title">@mysite.com</span>
+	    </div>
+	    
+	    <input type="submit" value="저장" class="btn btn-default" id="form_submit">
+	    <div id="name_error" class="alert alert-warning" role="alert"></div>
+	    <div id="email_error" class="alert alert-warning" role="alert"></div>
+	  </form>
+  </div>
+  
 </body>
 </html>
