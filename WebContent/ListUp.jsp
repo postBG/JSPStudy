@@ -28,8 +28,8 @@
       <span class="input-group-btn">
         <input type="submit" value="Go!" class="btn btn-default">
       </span>
-      <div id="search_result">
-      </div>
+    </div>
+    <div id="search_result">
     </div>
   </form>
   
