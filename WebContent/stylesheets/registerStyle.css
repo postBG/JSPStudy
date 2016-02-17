@@ -1,1 +1,9 @@
 @CHARSET "UTF-8";
+#form_name {
+	text-align: center;
+}
+
+#register_nav {
+	margin: 0 0 0 0;
+	border-radius: 0px;
+}

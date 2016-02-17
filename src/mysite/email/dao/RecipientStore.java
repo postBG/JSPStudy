@@ -13,7 +13,7 @@ import mysite.email.model.Recipient;
 
 public class RecipientStore {
 
-  private static final String RECIPIENT_FILENAME = "C:\\Users\\postBG\\Desktop\\sts-bundle\\sts-3.7.2.RELEASE\\user.txt";
+  private static final String RECIPIENT_FILENAME = "C:\\Users\\postBG\\Documents\\workspace-sts-3.7.2.RELEASE\\email\\WebContent\\data\\user.txt";
   private static final String FIELD_DELIMITER = ",";
   
   public List<Recipient> list() {
@@ -21,18 +21,8 @@ public class RecipientStore {
     List<Recipient> recipients = new LinkedList<Recipient>();
     
     try {
-      String record;
-      
       in = new BufferedReader(new FileReader(RECIPIENT_FILENAME));
-      
-      while((record = in.readLine()) != null){
-        String[] fields = record.split(FIELD_DELIMITER);
-        Recipient recipient = new Recipient(fields[0], fields[1]);
-        
-        recipients.add(recipient);
-      }
-      
-      return recipients;
+      return makeRecipientList(in, recipients);
       
     } catch (FileNotFoundException e) {
       
@@ -54,19 +44,30 @@ public class RecipientStore {
     
     return recipients;
   }
+
+  List<Recipient> makeRecipientList(BufferedReader in, List<Recipient> recipients) throws IOException {
+    String record;
+    while((record = in.readLine()) != null){
+      String[] fields = record.split(FIELD_DELIMITER);
+      Recipient recipient = new Recipient(fields[0], fields[1]);
+      
+      recipients.add(recipient);
+    }
+    
+    return recipients;
+  }
   
   public void write(Recipient recipient) throws IOException {
-    BufferedWriter recipientInfoPrinter = new BufferedWriter(new FileWriter(RECIPIENT_FILENAME, true));
+    FileWriter fileWriter = new FileWriter(RECIPIENT_FILENAME, true);
+    BufferedWriter recipientInfoPrinter = new BufferedWriter(fileWriter);
   
-    recipientInfoPrinter.write(recipient.getName() + FIELD_DELIMITER + recipient.getEmail());
+    wrtieRecipient(recipientInfoPrinter, recipient);
+  }
+
+  void wrtieRecipient(BufferedWriter recipientInfoPrinter, Recipient recipient) throws IOException {
+    recipientInfoPrinter.append(recipient.getName() + FIELD_DELIMITER + recipient.getEmail());
     recipientInfoPrinter.newLine();
-    
     recipientInfoPrinter.close();
   }
 
-  public void setRecipientStore(RecipientStore recipientStore) {
-    // TODO Auto-generated method stub
-    
-  }
-  
 }

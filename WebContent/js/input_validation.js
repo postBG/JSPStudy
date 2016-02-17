@@ -49,6 +49,7 @@ $(document).ready(function() {
     showWarningColor("#email", validationMsg);
   });
 
+  
   $("#recipient_info").submit(function() {
     var name=$("#name").val();
     var email=$("#email").val();
