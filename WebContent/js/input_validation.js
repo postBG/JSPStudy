@@ -35,20 +35,39 @@ function showWarningColor(idString, validationMsg){
 
 $(document).ready(function() {
 
+  $("#success_msg").hide();
+  $("#name_error").hide();
+  $("#email_error").hide();
+  
   $("#name").on("input", function() {
     var username = $(this).val(); 
     var validationMsg = makeUserNameMsg(username);
-    $("#name_error").html(validationMsg);
+    
+    if(validationMsg !== ""){
+      $("#name_error").show();
+      $("#name_error").html(validationMsg);
+    }
+    else{
+      $("#name_error").hide();
+    }
     showWarningColor("#name", validationMsg);
   });
 
   $("#email").on("input", function() {
     var email = $(this).val();
     var validationMsg = makeEmailValidation(email);
-    $("#email_error").html(validationMsg);
+    
+    if(validationMsg !== ""){
+      $("#email_error").show();
+      $("#email_error").html(validationMsg);
+    }
+    else{
+      $("#email_error").hide();
+    }
+    
     showWarningColor("#email", validationMsg);
   });
-
+  
   $("#recipient_info").submit(function() {
     var name=$("#name").val();
     var email=$("#email").val();
@@ -59,7 +78,18 @@ $(document).ready(function() {
     
     var url = "/email/store.do?name=" + name + "&email=" + email;
     $.get(url, function(msg){
-      $("#success_msg").html(msg);
+      msg = msg.trim();
+      var success_msg=$("#success_msg");
+
+      success_msg.show();
+      if(msg === (name + "님의 정보를 성공적으로 저장했습니다.")){
+        success_msg.attr("class", "alert alert-success");
+        success_msg.html(msg);
+      }
+      else{
+        success_msg.attr("class", "alert alert-danger");
+        success_msg.html(msg);
+      }
     });
     return false;
   });

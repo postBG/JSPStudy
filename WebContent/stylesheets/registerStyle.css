@@ -1,1 +1,32 @@
 @CHARSET "UTF-8";
+#form_name {
+	text-align: center;
+	margin: 10px auto 10px auto;
+}
+
+#register_nav {
+	margin: 0 0 0 0;
+	border-radius: 0px;
+	background-color: #EEE;
+	height: 40px;
+}
+
+#recipient_info_form {
+	width : 30%;
+	margin : 10% auto 10% auto;
+	vertical-align: middle;
+	background-color: #ffffff;
+	padding: 20px 30px 30px 30px;
+}
+
+#success_msg {
+	margin: 5px 0 5px 0;
+}
+
+#name_error {
+	margin: 0 0 0 0;
+}
+
+#email_error {
+	margin: 0 0 0 0;
+}

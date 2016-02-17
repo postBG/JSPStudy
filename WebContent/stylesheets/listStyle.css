@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+#register_nav {
+  margin: 0 0 0 0;
+  border-radius: 0px;
+  background-color: #EEE;
+  height: 40px;
+}
+
+.name_col {
+	background-color: #9E9E9E;
+}
+
+.email_col {
+	background-color: #CAC2C2;
+}
+
+#name_header {
+	background-color: #4AA6EF;
+}
+
+#email_header {
+	background-color: #A47EE8;
+}
+
+#search_section {
+	width : 30%;
+  margin : 10px auto 10px auto;
+  vertical-align: middle;
+  background-color: #ffffff;
+  padding: 10px 20px 20px 10px;
+}
+
+#default_list {
+	width : 50%;
+	margin : 0 auto 0 auto; 
+}
